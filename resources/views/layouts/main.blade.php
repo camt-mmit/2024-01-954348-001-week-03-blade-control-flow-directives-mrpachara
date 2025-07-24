@@ -5,24 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/lec04-styles.css') }}" />
 
-    <title>Pachara's Books Store - @yield('title')</title>
+    <title>Pachara's Books Store - {{ $title }}</title>
 </head>
 
 <body>
-    <header>
-        <h1>Pachara's Books Store - @yield('title')</span></h1>
+    <header id="app-cmp-main-header">
+        <h1>
+            Pachara's Books Store –
+            <span @class($titleClasses ?? [])>{{ $title }}</span>
+        </h1>
         <nav>
-            <a href="{{ route('products.list') }}">Products</a>
-            <a href="{{ route('categories.list') }}">Categories</a>
+            <ul class="app-cmp-links">
+                <li>
+                    <a href="{{ route('products.list') }}">Products</a>
+                </li>
+                <li>
+                    <a href="{{ route('categories.list') }}">Categories</a>
+                </li>
+            </ul>
         </nav>
     </header>
-    <div class="app-cmp-content">
+
+    <div id="app-cmp-main-content">
         @yield('content')
     </div>
-    <footer>
-        &#xA9; Copyright Week-03, 2025 your_name's Books Store.
+
+    <footer id="app-cmp-main-footer">
+        &#xA9; Copyright Week-03, 2025 Pachara's Books Store.
     </footer>
 </body>
 
