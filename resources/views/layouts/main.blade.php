@@ -15,6 +15,7 @@
         <h1>Pachara's Books Store - @yield('title')</span></h1>
         <nav>
             <a href="{{ route('products.list') }}">Products</a>
+            <a href="{{ route('categories.list') }}">Categories</a>
         </nav>
     </header>
     <div class="app-cmp-content">

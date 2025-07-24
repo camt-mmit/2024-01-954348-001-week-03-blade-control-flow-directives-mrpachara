@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Products')
+@section('title', $category['name'])
 
 @section('content')
     <style>
@@ -21,12 +21,11 @@
 
     <main>
         <table>
-            <caption>Products List</caption>
+            <caption>Products List for <em>{{ $category['name'] }}</em></caption>
             <thead>
                 <tr>
                     <th>Image</th>
                     <th>Code</th>
-                    <th>Category</th>
                     <th>Name</th>
                 </tr>
             </thead>
@@ -41,17 +40,7 @@
                             <a
                                 href="{{ route('products.view', [
                                     'product' => $product['code'],
-                                ]) }}">
-                                <em>{{ $product['code'] }}<em>
-                            </a>
-                        </td>
-                        <td>
-                            <a
-                                href="{{ route('categories.view', [
-                                    'category' => $product['catCode'],
-                                ]) }}">
-                                <em>{{ $categories[$product['catCode']]['name'] }}</em>
-                            </a>
+                                ]) }}"><em>{{ $product['code'] }}<em></a>
                         </td>
                         <td>
                             <span>{{ $product['name'] }}</span>

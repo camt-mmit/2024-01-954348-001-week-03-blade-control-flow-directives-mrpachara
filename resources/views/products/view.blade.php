@@ -38,7 +38,12 @@
 
             <dt>Category</dt>
             <dd>
-                <em style="color: blue;">{{ $product['catCode'] }}</em>
+                <a
+                    href="{{ route('categories.view', [
+                        'category' => $category['code'],
+                    ]) }}">
+                    <em style="color: blue;">{{ $category['name'] }}</em>
+                </a>
             </dd>
 
             <dt>Name</dt>
@@ -46,5 +51,7 @@
                 <span>{{ $product['name'] }}</span>
             </dd>
         </dl>
+
+        <pre>{{ $product['description'] }}</pre>
     </main>
 @endsection
